@@ -1,0 +1,8 @@
+{
+  "dependencies": {
+    "@mantine/core": "^5.10.2",
+    "@mantine/hooks": "^5.10.2",
+    "@primer/octicons-react": "^17.11.1",
+    "swr": "^2.0.3"
+  }
+}
