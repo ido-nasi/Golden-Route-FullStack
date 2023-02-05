@@ -9,7 +9,7 @@ services:
       - postgres_network
   backend:
     ports:
-      - 3000:3000
+      - 4000:4000
     build:
       dockerfile: Dockerfile
       context: server/
@@ -20,7 +20,7 @@ services:
       - postgres_network
   frontend:
     ports:
-    - 5173:5173
+    - 3000:3000
     build:
       dockerfile: Dockerfile
       context: client/
