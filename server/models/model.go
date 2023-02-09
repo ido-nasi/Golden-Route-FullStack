@@ -4,7 +4,7 @@ type Flight struct {
 	FlightId        uint    `gorm:"primary key;autoIncrement;not null" json:"id"`
 	CargoMass       float64 `gorm:"not null" json:"mass"`
 	TakeOffDistance float64 `gorm:"not null" json:"distance"`
-	ExcessCargoMass float64 `gorm:"not null" json:"excessmass"`
+	ExcessCargoMass float64 `gorm:"not null" json:"excessMass"`
 	TakeOffTime     float64 `gorm:"not null" json:"time"`
 }
 

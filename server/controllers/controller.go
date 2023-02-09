@@ -70,7 +70,7 @@ func Calculate(c *fiber.Ctx) error {
 		return err
 	}
 
-	c.Status(http.StatusOK).JSON(&fiber.Map{"data": flight})
+	c.Status(http.StatusOK).JSON(&fiber.Map{"flightData": flight})
 	return nil
 }
 

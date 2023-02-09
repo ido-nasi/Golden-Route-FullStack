@@ -6,6 +6,7 @@ import (
 	"server/initializers"
 
 	"github.com/gofiber/fiber/v2"
+	"github.com/gofiber/fiber/v2/middleware/cors"
 )
 
 func init() {
@@ -16,6 +17,10 @@ func init() {
 
 func main() {
 	app := fiber.New()
+	app.Use(cors.New(cors.Config{
+		AllowOrigins: os.Getenv("FRONTEND_URL"),
+		AllowHeaders: "Origin, Content-Type, Accept",
+	}))
 
 	app.Get("/", controllers.HomePage)
 	app.Get("/allFlights", controllers.GetAllFlights)
