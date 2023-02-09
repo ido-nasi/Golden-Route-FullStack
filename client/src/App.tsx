@@ -1,5 +1,5 @@
 import React from 'react';
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 import './App.css'
 import { Flight, IFlight } from './components/Flight'
 import { ToastContainer, toast } from 'react-toastify'
@@ -7,7 +7,9 @@ import 'react-toastify/dist/ReactToastify.css'
 import { Toast } from 'react-toastify/dist/components';
 
 
-const BACKEND_URL = "http://localhost:4000" // change for {backend} in production
+const BACKEND_URL = "http://localhost:4000" // remains localhost in production 
+/* The host referred on the frontend should be localhost as the backend port is exposed on localhost via Docker. And the frontend code is running in the browser (as opposed to exclusively in the container). The container was just a process serving up those bits.
+The opaque network error was likely a result of referring to a domain name that didn't exist to the host network. Because it was part of the docker-compose virtual network.*/
 const API_URL = "https://api.open-meteo.com/v1/forecast?"
 
 
@@ -20,7 +22,9 @@ function App() {
     const response = await fetch(`${BACKEND_URL}/calculate`, {
       method: 'POST',
       mode: 'cors',
-      headers: {"Content-Type": "application/json"},
+      headers: {
+        "Content-Type": "application/json",
+        },
       body: JSON.stringify({
           mass: mass
       })
@@ -46,7 +50,7 @@ function App() {
           value={mass}
           onChange={(e) => setMass(e.target.value)}
         />
-        <button onClick={calculateData} /> 
+        <button onClick={calculateData}>submit</button>
       </div>
       <ToastContainer/>
 

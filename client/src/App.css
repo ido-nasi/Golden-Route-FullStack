@@ -79,11 +79,12 @@ h2 {
   padding: 20px 40px;
   border-radius: 0.5rem;
   margin-left: 15px;
-  color: #a1a1a1;
+  color: #000000;
   font-family: var(--font-raleway);
-  font-weight: 900;
+  font-weight: 700;
   letter-spacing: 0.75px;
   font-size: 1.25rem;
+  
   cursor: pointer;
 
   background: #a1a1a1;
@@ -115,7 +116,7 @@ h2 {
   position: relative;
   border-radius: 12px;
   overflow: hidden;
-  border: none;
+  border: #fb8064;
 
   transition: all 0.4s cubic-bezier(0.175, 0.885, 0, 1);
   box-shadow: 0px 13px 10px -7px rgba(0, 0, 0, 0.1);

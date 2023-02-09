@@ -19,7 +19,8 @@ func main() {
 	app := fiber.New()
 	app.Use(cors.New(cors.Config{
 		AllowOrigins: os.Getenv("FRONTEND_URL"),
-		AllowHeaders: "Origin, Content-Type, Accept",
+		AllowMethods: "GET,POST,OPTIONS,PUT",
+		AllowHeaders: "Origin,Content-Type,Accept,Access-Control-Allow-Origin",
 	}))
 
 	app.Get("/", controllers.HomePage)
