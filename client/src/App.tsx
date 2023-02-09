@@ -54,7 +54,7 @@ function App() {
         <h2> Previous Flights</h2>  
       </div>
       
-      
+        {/* rendering the flights on the screen */}
         {
           flights?.length > 0 
           ? (
@@ -65,7 +65,7 @@ function App() {
             </div>
            ) : (
             <div className='empty'>
-              <h2>No Flight Records</h2>
+              <h3 className="flightId">No Flight Records</h3>
             </div>
           )
         }

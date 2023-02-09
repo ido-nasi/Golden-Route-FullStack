@@ -12,12 +12,12 @@ export const Flight = ({props} : {props: IFlight}) => {
 
   return (
     <div className="flight" key={props.id}>
-        <h3>Flight ID: {props.id} </h3><br></br>
+        <h3 className="flightId">Flight ID: {props.id} </h3><br></br>
         <p className="flightSpecs">
-          Total Mass: {props.mass} <br></br>
-          Take-off Distance: {props.distance} <br></br> 
-          Take-off Time: {props.time} <br></br>
-          Excess Mass: {props.excessMass}
+          <b>Total Mass:</b> {props.mass} [kg]<br></br>
+          <b>Take-off Distance:</b> {props.distance} [m]<br></br> 
+          <b>Take-off Time:</b> {props.time} [seconds]<br></br>
+          <b>Excess Mass:</b> {props.excessMass} [kg]
         </p>
     </div>
   )

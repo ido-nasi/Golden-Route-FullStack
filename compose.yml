@@ -25,6 +25,8 @@ services:
       dockerfile: Dockerfile
       context: client/
       target: dev
+    depends_on:
+      - backend
     networks:
       - postgres_network
       
