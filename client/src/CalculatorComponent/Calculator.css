@@ -147,38 +147,3 @@ h2 {
   width: fit-content;
 }
 
-
-@media screen and (max-width: 600px) {
-  .app {
-    padding: 4rem 2rem;
-  }
-
-  .getUserInput
- {
-    padding: 1rem 1.75rem;
-    width: 100%;
-  }
-
-  .getUserInput input {
-    font-size: 1rem;
-  }
-}
-
-@media screen and (max-width: 400px) {
-  .app {
-    padding: 4rem 1rem;
-  }
-
-  h1 {
-    font-size: 2rem;
-  }
-
-  .container {
-    margin-top: 2rem;
-  }
-
-  .flight {
-    width: "100%";
-    margin: 1rem;
-  }
-}

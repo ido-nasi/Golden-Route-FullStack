@@ -19,13 +19,13 @@ func main() {
 	app := fiber.New()
 	app.Use(cors.New(cors.Config{
 		AllowOrigins: os.Getenv("FRONTEND_URL"),
-		AllowMethods: "GET,POST,OPTIONS,PUT",
+		AllowMethods: "GET,POST,PUT,OPTIONS",
 		AllowHeaders: "Origin,Content-Type,Accept,Access-Control-Allow-Origin",
 	}))
 
-	app.Get("/", controllers.HomePage)
-	app.Get("/allFlights", controllers.GetAllFlights)
-	app.Post("/calculate", controllers.Calculate)
+	app.Get("/api/v1/allFlights", controllers.GetAllFlights)
+	app.Post("/api/v1/calculate", controllers.Calculate)
+	app.Post("api/v1/weatherApi", controllers.WeatherApiController)
 
 	app.Listen(":" + os.Getenv("PORT"))
 }
