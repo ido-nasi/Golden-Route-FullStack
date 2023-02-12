@@ -58,7 +58,7 @@ function WeatherApi() {
   return (
 
     <div className='app'>
-        <h1>IAF Weather Forecast</h1>
+        <h1>Weather Forecast</h1>
         <Link to="/" style={{ textDecoration: 'none', color: "#bd4715", fontFamily: "Roboto Slab, serif", fontSize: "2.2rem"  }}>Go to flight calculator</Link>
 
         <div className="getUserInput">
@@ -85,6 +85,7 @@ function WeatherApi() {
         <ToastContainer/>
         
         <h3>Pick a date: </h3>
+        {/* TODO: fix datepicker size */}
         <DatePicker
           value={date}
           render={<InputIcon />}

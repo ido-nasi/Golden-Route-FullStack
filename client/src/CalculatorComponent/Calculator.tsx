@@ -36,8 +36,8 @@ function Calculator() {
   
     return (
       <div className='app'>
-        <h1>IAF Flight Calculator</h1>
-        <Link to="/weather" style={{ textDecoration: 'none', color: "#bd4715", fontFamily: "Roboto Slab, serif", fontSize: "2.2rem"  }}>Go to weather calculator</Link>
+        <h1>Flight Calculator</h1>
+        <Link to="/weather" style={{ textDecoration: 'none', color: "#bd4715", fontFamily: "Roboto Slab, serif", fontSize: "2.2rem"  }}>Go to weather forecast</Link>
         <div className='getUserInput input'>
           <input
             style={{fontSize: "1.5rem"}}
