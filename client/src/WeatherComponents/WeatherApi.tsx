@@ -1,9 +1,11 @@
 import React, { useState } from 'react'
+import { Link } from 'react-router-dom'
 import { ToastContainer, toast } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
-import DatePicker, { DateObject, Value } from "react-multi-date-picker"
+import DatePicker, { Value } from "react-multi-date-picker"
 import InputIcon from "react-multi-date-picker/components/input_icon"
 import "react-multi-date-picker/styles/backgrounds/bg-dark.css"
+import "react-multi-date-picker/styles/colors/red.css"
 import "./Weather.css" 
 
 const BACKEND_URL = "http://localhost:4000/api/v1" // remains localhost in production
@@ -44,10 +46,12 @@ function WeatherApi() {
     if (data.hours !== undefined) {
       setValidHours(data.hours);
       setAvgTemp('');
+      toast.success("Updated possible hours for take-off")
     }
     if (data.avgTemp !== undefined) {
       setAvgTemp(data.avgTemp);
       setValidHours([]);
+      toast.success("Updated the average temperature")
     }
   }
 
@@ -55,40 +59,55 @@ function WeatherApi() {
 
     <div className='app'>
         <h1>IAF Weather Forecast</h1>
-        
+        <Link to="/" style={{ textDecoration: 'none', color: "#bd4715", fontFamily: "Roboto Slab, serif", fontSize: "2.2rem"  }}>Go to flight calculator</Link>
+
         <div className="getUserInput">
           <h3>Latitude: </h3>
-          <input placeholder="value between -90 to 90" onChange={(e) => setLatitude(e.target.value)}/>
+          <input 
+            style={{fontSize: "1.5rem"}}
+            placeholder="value between -90 to 90" 
+            value={latitude}
+            onChange={(e) => setLatitude(e.target.value)}
+          />
         </div>
         
         <div className="getUserInput">
           <h3>Longitude: </h3>
-          <input placeholder="value between -180 to 180" onChange={(e) => setLongitude(e.target.value)} />
+          <input 
+            style={{fontSize: "1.5rem"}}
+            placeholder="value between -180 to 180" 
+            value={longitude}
+            onChange={(e) => setLongitude(e.target.value)} 
+          />
+
+
         </div>
         <ToastContainer/>
         
-        <DatePicker 
+        <h3>Pick a date: </h3>
+        <DatePicker
           value={date}
           render={<InputIcon />}
           onChange={(e) => {setDate(e)}}
           className="bg-dark"
         />
         
-
         <div className="submitButton">
           <button onClick={getWeatherFromBackend}>Check Weather!</button>
         </div>
         
         {
           validHours?.length > 0 ? (
-            <div className='container'>
-              <h3>It is possible to carry out the mission</h3>
-              <ul>{validHours.map((hour) => (<li key={hour}>{hour}</li>))}</ul>
+            <div style={{fontSize: "1.8rem"}}>
+              <h3 style={{marginBottom:"1rem", fontSize: "2rem"}}>
+                It is possible to carry out the mission on:</h3>
+              <ul className="hourList" style={{display: "flex", alignItems: "center", flexDirection: "column"}}>
+                {validHours.map((hour) => (<li style={{color:"#e3c3a8", font: "0.5rem"}} key={hour}>{hour}</li>))}</ul>
           </div>
           ) : (
-            <div>
+            <div className="container1">
               <h3>Couldn't find matching hour</h3>
-              <h3>Average temperature: {avgTemp}</h3>
+              <h3>Average temperature: {avgTemp} °C</h3>
             </div>
           )
         }

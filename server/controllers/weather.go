@@ -3,6 +3,7 @@ package controllers
 import (
 	"encoding/json"
 	"io/ioutil"
+	"log"
 	"net/http"
 )
 
@@ -23,12 +24,12 @@ func (W *WeatherApiResponse) UnmarshalResponse(response *http.Response) {
 
 	responseBytes, err := ioutil.ReadAll(response.Body)
 	if err != nil {
-		println(err)
+		log.Println(err)
 	}
 
 	err = json.Unmarshal([]byte(responseBytes), &W)
 	if err != nil {
-		println(err)
+		log.Println(err)
 	}
 }
 

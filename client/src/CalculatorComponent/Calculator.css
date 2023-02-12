@@ -64,7 +64,7 @@ h2 {
 .getUserInput input {
   flex: 1;
   border: none;
-  font-size: 1.5rem;
+  font-size: 2rem;
   font-family: var(--font-raleway);
   font-weight: 500;
   padding-right: 1rem;
@@ -146,4 +146,3 @@ h2 {
   -webkit-text-fill-color: transparent;
   width: fit-content;
 }
-

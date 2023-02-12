@@ -1,10 +1,12 @@
 import React from 'react'
 import { useState } from 'react'
-import './Calculator.css'
-import { Flight, IFlight } from './Flight'
-import { ToastContainer, toast } from 'react-toastify'
-import 'react-toastify/dist/ReactToastify.css'
 import { Link } from 'react-router-dom'
+import { ToastContainer, toast } from 'react-toastify'
+
+import { Flight, IFlight } from './Flight'
+import 'react-toastify/dist/ReactToastify.css'
+import './Calculator.css'
+
 
 const BACKEND_URL = "http://localhost:4000/api/v1" // remains localhost in production
 
@@ -35,9 +37,10 @@ function Calculator() {
     return (
       <div className='app'>
         <h1>IAF Flight Calculator</h1>
-        <Link to="/weather">Go to weather calculator</Link>
+        <Link to="/weather" style={{ textDecoration: 'none', color: "#bd4715", fontFamily: "Roboto Slab, serif", fontSize: "2.2rem"  }}>Go to weather calculator</Link>
         <div className='getUserInput input'>
           <input
+            style={{fontSize: "1.5rem"}}
             placeholder='Enter cargo mass'
             value={mass}
             onChange={(e) => setMass(e.target.value)}
@@ -46,9 +49,8 @@ function Calculator() {
         </div>
         <ToastContainer/>
   
-        <div>
-          <h2> Previous Flights</h2>  
-        </div>
+        <h2> Previous Flights</h2>  
+        
         
           {/* rendering the flights on the screen */}
           {
