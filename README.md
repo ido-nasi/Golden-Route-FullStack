@@ -6,8 +6,8 @@
     Some edge cases that might happen is mistyped input, or an invalid input value. We can regex the input we get from the frontend to validate its type (which I have done). We can also run value checks on the input to deteremine its validity, like checking that the CargoMass value is not negative. 
 </p>
 <p>
-<b>Question 6: </b> We can calculate the wind resistence. //etc etc Moreover, we can implement complex mathmatical models that will enable us to calculate non constant accelaration, instead of constant one. Thus making the models closer to reality conditions.
-Moreover, we can apply 
+<b>Question 6: </b> We can calculate the wind resistence.
+ Moreover, we can implement complex mathmatical models that will enable us to calculate non constant accelaration, instead of constant one. Thus, making the model's conditions closer to reality.
 </p>
 
 ## Task 4
@@ -16,6 +16,26 @@ Moreover, we can apply
 </p>
 
 ## Task 5
+### Overview
+```mermaid
+sequenceDiagram
+    participant Frontend
+    participant Backend
+    participant RemoteWeatherAPI
+    participant Database
+
+    Frontend ->> Backend:  Post requests data, passing required fields for calculation in req body.
+
+    Backend ->> Frontend: Evaluating Frontend's requests, calculating/requesting needed data, and sends it back.
+
+    Backend ->> Database: Saves the Flight Records coming from Frontend via the Flight struct from Backend.
+
+    Backend ->> RemoteWeatherAPI: requests weather data
+
+    RemoteWeatherAPI ->> Backend: validate & parsing data from response, sends it back to client
+
+```
+
 ### Weather Api Implementation UML
 ```mermaid
 sequenceDiagram
