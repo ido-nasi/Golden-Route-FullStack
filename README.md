@@ -10,6 +10,6 @@ sequenceDiagram
     Frontend ->> Backend: Posts request with  needed fields
     Backend ->> RemoteWeatherAPI: Requests the weather data using the client's fields
     RemoteWeatherAPI ->> Backend: returns data in json format
-    Backend ->> Frontend: returning relevant fields from json  
+    Backend ->> Frontend: returns selected fields from json
 
 ```
