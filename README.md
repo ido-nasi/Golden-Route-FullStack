@@ -120,7 +120,7 @@ You will need to install:
 
 From three different terminals, execute by order:
 1. `docker run -e POSTGRES_PASSWORD=mypass -p 5432:5432 postgres`
-2. `cd server && go run main.go` **//** before running it, change the `host` field in .env file in server/ to localhost instead of db
+2. `cd server && go run main.go` **//** before running it, change the `host` field in `.env` file in `server/` to `localhost` instead of `db`
 3. `cd client && npm run dev`
 
 You can also install postgres directly and not run it through docker, but you will need to change the host field in the .env file as well.
