@@ -8,8 +8,8 @@ sequenceDiagram
     participant RemoteWeatherAPI
     
     Frontend ->> Backend: Posts request with  needed fields
-    Backend ->> RemoteAPI: Requests the weather data using the client's fields
-    RemoteAPI ->> Backend: returns data in json format
+    Backend ->> RemoteWeatherAPI: Requests the weather data using the client's fields
+    RemoteWeatherAPI ->> Backend: returns data in json format
     Backend ->> Frontend: returning relevant fields from json  
 
 ```
