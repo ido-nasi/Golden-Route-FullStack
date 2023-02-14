@@ -6,8 +6,8 @@
     Some edge cases that might happen is mistyped input, or an invalid input value. We can regex the input we get from the frontend to validate its type (which I have done). We can also run value checks on the input to deteremine its validity, like checking that the CargoMass value is not negative. 
 </p>
 <p>
-<b>Question 6: </b> We can calculate the wind resistence.
- Moreover, we can implement complex mathmatical models that will enable us to calculate non constant accelaration, instead of constant one. Thus, making the model's conditions closer to reality.
+<b>Question 6: </b> We should calculate the wind resistence and direction, as it could change our take off distance.
+ Moreover, we can implement complex mathmatical models that will enable us to calculate non constant accelaration, instead of constant one. Thus, making the calculator's conditions closer to reality.
 </p>
 
 ## Task 4
@@ -16,24 +16,18 @@
 </p>
 
 ## Task 5
-### Overview
+### Calculator UML
 ```mermaid
 sequenceDiagram
     participant Frontend
     participant Backend
-    participant RemoteWeatherAPI
     participant Database
 
-    Frontend ->> Backend:  Post requests data, passing required fields for calculation in req body.
+    Frontend ->> Backend: Post request to the backend with the user selected data.
 
-    Backend ->> Frontend: Evaluating Frontend's requests, calculating/requesting needed data, and sends it back.
+    Backend ->> Frontend: Calculates the metrics and sends it back.
 
-    Backend ->> Database: Saves the Flight Records coming from Frontend via the Flight struct from Backend.
-
-    Backend ->> RemoteWeatherAPI: requests weather data
-
-    RemoteWeatherAPI ->> Backend: validate & parsing data from response, sends it back to client
-
+    Backend ->> Database: Saves the Flight Records in Postgresql DB.
 ```
 
 ### Weather Api Implementation UML
@@ -43,11 +37,26 @@ sequenceDiagram
     participant Backend
     participant RemoteWeatherAPI
     
-    Frontend ->> Backend: Posts request with  needed fields
-    Backend ->> RemoteWeatherAPI: Requests the weather data using the client's fields
+    Frontend ->> Backend: Post request to the backend with the user selected data.
+    Backend ->> RemoteWeatherAPI: Requests the weather data using the client's data
     RemoteWeatherAPI ->> Backend: returns data in json format
     Backend ->> Frontend: returns selected fields from json
 
+```
+
+### Database tables
+- Flight - saved in the database. 
+
+`FlightId` is a sequence, auto incremented. 
+```mermaid
+classDiagram
+    class Flight {
+        +uint FlightId
+        +float64 CargoMass
+        +float64 TakeOffDistance
+        +float64 ExcessCargoMass
+        +float64 TakeOffTime
+    }
 ```
 
 # Task 6
