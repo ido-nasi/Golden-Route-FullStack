@@ -1,5 +1,6 @@
 # Golang-Api
 
 ```mermaid
-A --> B
+graoh TD;
+  A --> B;
 ```
