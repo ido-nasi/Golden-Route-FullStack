@@ -110,7 +110,7 @@ docker-compose build
 docker-compose up
 ```
 
-The client will be running on `localhost:3000`
+The client will be running on `localhost:3000` (sometimes it bugs out and can't connect to the database, so without building again just run `docker-compose up`)
 
 # Task 7
 During war, the security of operational systems is at risk of <b>cyber attacks</b>. <br>
