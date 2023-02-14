@@ -11,9 +11,11 @@ import (
 
 var DB *gorm.DB
 
+// Makes initial connection to the db
 func ConnectToDB() {
 	var err error
 
+	// Connects using the dsn in the .env file
 	dsn := os.Getenv("DB_URL")
 	DB, err = gorm.Open(postgres.Open(dsn), &gorm.Config{})
 
@@ -22,6 +24,7 @@ func ConnectToDB() {
 	}
 }
 
+// Migrates the requested structs into a table in the Database
 func MigrateModels() {
 	err := DB.AutoMigrate(&models.Flight{})
 	if err != nil {

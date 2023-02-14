@@ -5,12 +5,14 @@ import (
 	"math"
 )
 
+// Constants for calculating metrics
 var engineForce float64 = 100_000
 var baseMass float64 = 35_000 // place + team
 var maxTakeOffTime float64 = 60
 var flightSpeed float64 = 140
 var maxCargoMassForTimeLimit float64 = 7857.142857 // The calculation in the README.md
 
+// Calculate
 func Acceleration(cargoMass float64) float64 {
 
 	if cargoMass < 0 {

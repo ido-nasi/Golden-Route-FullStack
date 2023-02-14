@@ -7,6 +7,7 @@ import (
 	"net/http"
 )
 
+// Struct to parse the weather api response into
 type WeatherApiResponse struct {
 	Latitude  float64 `json:"latitude"`
 	Longitude float64 `json:"longitude"`
@@ -20,6 +21,7 @@ type Hourly struct {
 	Temperature []float64 `json:"temperature_2m"`
 }
 
+// Struct function to unmarshal the response into the WeatherApiResponse struct
 func (W *WeatherApiResponse) UnmarshalResponse(response *http.Response) {
 
 	responseBytes, err := ioutil.ReadAll(response.Body)
@@ -33,6 +35,7 @@ func (W *WeatherApiResponse) UnmarshalResponse(response *http.Response) {
 	}
 }
 
+// Struct to parse the frontend request parameters into
 type RequestParams struct {
 	Latitude  string `json:"latitude"`
 	Longitude string `json:"longitude"`
