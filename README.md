@@ -112,6 +112,18 @@ docker-compose up
 
 The client will be running on `localhost:3000` (sometimes it bugs out and can't connect to the database, so without building again just run `docker-compose up`)
 
+### Manual Way
+You will need ot install:
+- golang - [https://go.dev/doc/install](https://go.dev/doc/install)
+- npm - [https://nodejs.org/en/download/](https://nodejs.org/en/download/)
+- docker engine: [https://docs.docker.com/engine/install/](https://docs.docker.com/engine/install)
+
+From three different terminals, execute by order:
+1. `docker run -e POSTGRES_PASSWORD=mypass -p 5432:5432 postgres`
+2. `cd server && go run main.go` ## before running it, change the `host` field in .env file in server/ to localhost instead of db
+3. `cd client && npm run dev`
+
+You can also install postgres directly and not run it through docker, but you will need to change the host field in the .env file as well.
 # Task 7
 During war, the security of operational systems is at risk of <b>cyber attacks</b>. <br>
 Here are a couple of protection ideas we can implement in this project to make it more secure:
