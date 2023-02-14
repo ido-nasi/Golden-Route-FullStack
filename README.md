@@ -46,6 +46,7 @@ Official installation guides:</b>
 - docker engine: [https://docs.docker.com/engine/install/](https://docs.docker.com/engine/install)
 - docker-compose: [https://docs.docker.com/compose/install/other/](https://docs.docker.com/compose/install/other/)
 
+#### Step 3
 After installing, from the root of the project, run:
 ```bash
 docker-compose build
