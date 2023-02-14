@@ -113,7 +113,7 @@ docker-compose up
 The client will be running on `localhost:3000`
 
 # Task 7
-During war, the security of operational systems are at risk of <b>cyber attacks</b>. <br>
+During war, the security of operational systems is at risk of <b>cyber attacks</b>. <br>
 Here are a couple of protection ideas we can implement in this project to make it more secure:
 - Encrypt traffic with ssl certificates.
 - Provide basic defenses against common cyber attacks, such as ddos, sql injections, csrf etc.
