@@ -27,9 +27,6 @@ services:
       target: dev
     networks:
       - postgres_network
-    depends_on:
-      - backend
-      
       
 
 networks:
