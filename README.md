@@ -111,3 +111,12 @@ docker-compose up
 ```
 
 The client will be running on `localhost:3000`
+
+# Task 7
+During war, the security of operational systems is at risk. We, as developers, need to write safe code that will ensure max security. Some steps we can inplement in this project:
+- Encrypt the traffic with ssl certificates.
+- Provide basic defenses against common cyber attacks, such as ddos, sql injections, csrf etc.
+
+## Possible Improvements:
+- Generate flight statistics from database.
+- Create personal login for each pilot, where he can view his recent flights statistics and learn from them.
