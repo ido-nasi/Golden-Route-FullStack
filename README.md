@@ -92,8 +92,8 @@ classDiagram
 #### Step 1
 Clone the project to your machine and cd into it: 
 ```bash
-git clone "https://github.com/ido-nasi/Golden-Route-API.git"
-cd Golden-Route-API
+git clone "https://github.com/ido-nasi/Golden-Route-FullStack.git"
+cd Golden-Route-FullStack
 ```
 
 #### Step 2
